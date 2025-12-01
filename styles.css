@@ -8,17 +8,31 @@
     text-align: center;
     padding: 10px 0;
     font-family: Arial, sans-serif;
+    position: sticky;
+    top: 0;
+}
+.main{
+    display: flex;
+    gap: 10px;
 }
 
 .tools{
-    background: #f4f4f4;
+    background: #b8afed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    padding: 30px;
-    margin: 0 30px;
+    flex-wrap: wrap;
+    gap:  10px;
+    padding:20px 30px;
+    margin: auto;
     border-radius: 20px;
+}
+
+.tools h1{
+    font-size: 30px;
+    color: #1F2937;
+    text-decoration: underline;
 }
 
 .colorInput, .brushSizeInput{
@@ -26,15 +40,41 @@
     align-items: center;
     gap: 10px;
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+}
+
+#strokeColor {
+    -webkit-appearance: none;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    transition: 0.3s ease;
+}
+
+#strokeColor::-webkit-color-swatch {
+    border-radius: 8px;
+}
+
+#strokeColor:hover {
+    transform: scale(1.05);
+}
+
+
+
+.brushSizeInput{
+    display: flex;
+    flex-direction: column;
 }
 
 .btn{
     padding: 8px 16px;
+    width: 140px;
     border: none;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #111827;
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -42,10 +82,38 @@
     text-wrap: nowrap;
 }
 
+.btn:hover {
+    background-color: #273149;
+    transform: translateY(-2px) scale(1.03);
+    transition: 0.25s ease;
+}
+
 #canvas{
     display: block;
-    margin: 20px auto;
+    margin:  auto;
     border: 2px solid #333;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    cursor: crosshair;
+    overflow: hidden;
+    box-shadow: rgba(0,0,0,0.1);
+}
+
+#cursorPreview {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 2px solid #3B82F6;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    display: none;
+}
+
+.active,
+.active:hover{
+    background: orange;
+
+}
+
+.active:hover{
+    transform: translateY(-2px) scale(1.05);
+    transition: 0.25s ease;
 }
