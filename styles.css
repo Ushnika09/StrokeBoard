@@ -108,6 +108,7 @@
 .canvas_area{
     position: relative;
     overflow: hidden;
+    margin: auto;
 }
 
 #canvas{

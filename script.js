@@ -116,3 +116,20 @@ canvas.addEventListener('pointerup', stopDrawing);
 canvas.addEventListener('pointerleave', stopDrawing);
 canvas.addEventListener('pointercancel', stopDrawing);
 canvas.addEventListener("pointermove", updateCursorPreview);
+
+
+drawBtn.addEventListener("click", () => {
+    // Remove active class from all tools (optional)
+    pen.classList.remove("active");
+    eraser.classList.remove("active");
+    drawBtn.classList.add("active");
+
+    currentTool = "draw";
+
+    // Make the cursor crosshair
+    canvas.classList.add("draw");
+
+    // Remove the crosshair if coming from pen/eraser
+    canvas.classList.remove("pen");
+    canvas.classList.remove("eraser");
+});
