@@ -31,6 +31,7 @@ eraser.addEventListener('click', () => {
 
 sqBtn.addEventListener('click', () => {
     currentTool = 'square';
+
     setActive(sqBtn)
 })
 
@@ -93,29 +94,21 @@ downloadBtn.addEventListener('click', () => {
 
 
 function updateCursorPreview(e) {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
     const size = strokeWidthInput.value;
 
     cursorPreview.style.width = size + "px";
     cursorPreview.style.height = size + "px";
 
-    cursorPreview.style.left = e.pageX + "px";
-    cursorPreview.style.top = e.pageY + "px";
+    cursorPreview.style.left = x + "px";
+    cursorPreview.style.top = y + "px";
 
     cursorPreview.style.display = "block";
-    
-    cursorPreview.style.boxShadow = "none";  // reset shadow
-
-    // Pen: show colored border
-    if (currentTool === "pen") {
-        cursorPreview.style.borderColor = colorInput.value;
-    }
-
-    // Eraser: white border + neon glow
-    if (currentTool === "eraser") {
-        cursorPreview.style.borderColor = "#ffffff";
-        cursorPreview.style.boxShadow = "0 0 8px #EC4899";
-    }
 }
+
 
 canvas.addEventListener('pointerdown', startDrawing);
 canvas.addEventListener('pointermove', draw);

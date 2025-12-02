@@ -88,24 +88,7 @@
     transition: 0.25s ease;
 }
 
-#canvas{
-    display: block;
-    margin:  auto;
-    border: 2px solid #333;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-    box-shadow: rgba(0,0,0,0.1);
-}
 
-#cursorPreview {
-    position: absolute;
-    pointer-events: none;
-    border-radius: 50%;
-    border: 2px solid #3B82F6;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    display: none;
-}
 
 .active,
 .active:hover{
@@ -116,4 +99,36 @@
 .active:hover{
     transform: translateY(-2px) scale(1.05);
     transition: 0.25s ease;
+}
+
+.draw{
+    cursor:crosshair;
+}
+
+.canvas_area{
+    position: relative;
+    overflow: hidden;
+}
+
+#canvas{
+    position: relative;
+    width: 1000px;
+    height: 450px;
+    display: block;
+    margin:  auto;
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    box-shadow: rgba(0,0,0,0.1);
+}
+
+#cursorPreview {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 2px solid #3B82F6;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    display: none;
 }
